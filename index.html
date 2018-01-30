@@ -48,6 +48,10 @@
 				var ennn = document.getElementById("enWord").value;
 				var lvll = document.getElementById("lvlWod").value;
 				myFirebase.push({word:word, jap:japp, en:ennn, lvl: lvll });
+				document.getElementById("wordType").value = "";
+				document.getElementById("japWord").value = "";
+				document.getElementById("enWord").value = "";
+				document.getElementById("lvlWod").value = "";
 			}
 		</script>
 	</body>
