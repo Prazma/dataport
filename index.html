@@ -41,11 +41,11 @@
 		</form>
 		<script>
 			var myFirebase = new Firebase('https://tappyup.firebaseio.com');
-			var word = document.getElementById("wordType").value;
-			var japp = document.getElementById("japWord").value;
-			var ennn = document.getElementById("enWord").value;
-			var lvll = document.getElementById("lvlWod").value;
 			function send() {
+				var word = document.getElementById("wordType").value;
+				var japp = document.getElementById("japWord").value;
+				var ennn = document.getElementById("enWord").value;
+				var lvll = document.getElementById("lvlWod").value;
 				myFirebase.push({word:word, jap:japp, en:ennn, lvl: lvll });
 			}
 		</script>
