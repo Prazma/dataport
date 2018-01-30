@@ -35,7 +35,9 @@
 				<option value="verbs">Verbs（動詞）</option>
 				<option value="adjec">Adjective（形容詞）</option>
 			</select><br>
-			<input id="japWord" placeholder="日本語用語"><br>
+			<input id="japWord" placeholder="日本語用語（漢字）"><br>
+			<input id="japWordHira" placeholder="日本語用語（ひらがな）"><br>
+			<input id="japWordRoma" placeholder="ローマ字"><br>
 			<input id="enWord" placeholder="英語訳"><br>
 			<input type="number" id="lvlWod" placeholder="レベルを入力（数字）"><br>
 			<input type="submit" value="データを送信">
@@ -45,9 +47,11 @@
 			function send() {
 				var word = document.getElementById("wordType").value;
 				var japp = document.getElementById("japWord").value;
+				var japh = document.getElementById("japWordHira").value;
+				var japr = document.getElementById("japWordRoma").value;
 				var ennn = document.getElementById("enWord").value;
 				var lvll = document.getElementById("lvlWod").value;
-				myFirebase.push({word:word, jap:japp, en:ennn, lvl: lvll });
+				myFirebase.push({word:word, japK:japp, japH:japh, japR:japr, en:ennn, lvl: lvll });
 				document.getElementById("wordType").value = "";
 				document.getElementById("japWord").value = "";
 				document.getElementById("enWord").value = "";
