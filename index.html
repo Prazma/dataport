@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Japanese App Data</title>
+		<meta name='viewport' content='width=device-width, user-scalable=no'>
+		<style>
+			body {
+				margin: 0;
+				text-align: center;
+			}
+			input, select {
+				margin-top: 5px;
+				margin-bottom: 5px;
+			}
+		</style>
+		<script src='https://cdn.firebase.com/js/client/2.4.0/firebase.js'></script>
+		<script>
+			// Initialize Firebase
+			var config = {
+    	 	 apiKey: "AIzaSyBVOYT0bgvJGT419zI70IZ5vlQyXupvSBk",
+    	 	 authDomain: "tappyup.firebaseapp.com",
+    	 	 databaseURL: "https://tappyup.firebaseio.com",
+    	 	 projectId: "tappyup",
+    	 	 storageBucket: "",
+    	 	 messagingSenderId: "326233870177"
+    		};
+    		firebase.initializeApp(config);
+  		</script>
+	</head>
+	<body>
+		<form action="javascript:send()">
+			<select id="wordType">
+				<option value="noun">Noun（名詞）</option>
+				<option value="verbs">Verbs（動詞）</option>
+				<option value="adjec">Adjective（形容詞）</option>
+			</select><br>
+			<input id="japWord" placeholder="日本語用語"><br>
+			<input id="enWord" placeholder="英語訳"><br>
+			<input id="lvlWod" placeholer="レベルを入力（数字）"><br>
+			<input type="submit" value="データを送信">
+		</form>
+		<script>
+			var myFirebase = new Firebase('https://tappyup.firebaseio.com');
+			var word = document.getElementById("wordType").value;
+			var japp = document.getElementById("japWord").value;
+			var ennn = document.getElementById("enWord").value;
+			var lvll = document.getElementById("lvlWod").value;
+			function send() {
+				myFirebase.push({word:word, jap:japp, en:ennn, lvl: lvll });
+			}
+		</script>
+	</body>
+</html>
